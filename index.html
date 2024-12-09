@@ -25,6 +25,13 @@
 					<li><a href="#">Nav Link 5</a></li>
 					<li><a href="#">Nav Link 6</a></li>
 					<li><a href="#">Nav Link 7</a></li>
+					<!-- button below calls to function "iclickeditTask3".
+					Upon being clicked, it changes the text to I Clicked It! using a getelementbyid and swapping it out -->
+					<li><button id = "iclickeditTask3Button" onclick = "iclickeditTask3()">Silly Button For Clicking</button></li>
+					<!-- Task 4 source:
+    https://stackoverflow.com/questions/2004555/how-can-i-make-javascript-make-produce-new-page
+-->
+					<li><button id = "clearbuttonTask4" onclick = "clearTask4()">clear</button></li>
 					<!-- Buttons for Task 3 and Task 4 should be placed here -->
 					
 				</ul>
@@ -38,19 +45,21 @@
 
 					<!-- Paragraphs -->
 					<h3>Basic Directions</h3>
-					<p>This project is meant to assess your understanding of Javascript usage within a webpage.  There are five tasks that you must complete.  The tasks are functionality that will be added to this page.  Inside of the folder you found this html file, you will see a folder called "assets".  Within that, another folder called "javascript" has 5 files labeled task1.js to task5.js.  For each task, place your javascript code within the appropriate file.  The files are already linked to this page in the <b>head</b> of this document.  The instructions for each task are listed below.</p>
-					<hr>
+					<div id = "basicdirectionstextTask3">
+						<p>This project is meant to assess your understanding of Javascript usage within a webpage.  There are five tasks that you must complete.  The tasks are functionality that will be added to this page.  Inside of the folder you found this html file, you will see a folder called "assets".  Within that, another folder called "javascript" has 5 files labeled task1.js to task5.js.  For each task, place your javascript code within the appropriate file.  The files are already linked to this page in the <b>head</b> of this document.  The instructions for each task are listed below.</p>
+						<hr>
 
-					<h3>Tasks</h3>
-					<p>The tasks that you need to accomplish are listed below.  If you have any questions, feel free to ask me.  If it is over the weekend, feel free to email me at <a href="mailto:akiedes@vtsd.com">akiedes@vtsd.com</a>.  If there is a place on the webpage where an element needs to be added for a task, place it within the area labeled for that task.</p>
-					<ol>
-						<li>When you hover the mouse over the image, a button should appear.  When you click the button, the image should disappear.</li>
-						<li>Create 3 buttons (similar to the one provided for "Task 1") each associated with a different color.  When each button is clicked, change the background of the table to the color the button represents.</li>
-						<li>Add a button to the navigation bar which, when clicked changes the text within the basic directions  to "I Clicked It!".</li>
-						<li>Create a button within the navigation called "clear" which opens a new page with the text "new page has been created".</li>
-						<li>On the form add validation functionality that shows the form field (or its label) as red if the field is empty.  They should turn back to white when the data is entered.</li>
-					</ol>
-					<hr>
+						<h3>Tasks</h3>
+						<p>The tasks that you need to accomplish are listed below.  If you have any questions, feel free to ask me.  If it is over the weekend, feel free to email me at <a href="mailto:akiedes@vtsd.com">akiedes@vtsd.com</a>.  If there is a place on the webpage where an element needs to be added for a task, place it within the area labeled for that task.</p>
+						<ol>
+							<li>When you hover the mouse over the image, a button should appear.  When you click the button, the image should disappear.</li>
+							<li>Create 3 buttons (similar to the one provided for "Task 1") each associated with a different color.  When each button is clicked, change the background of the table to the color the button represents.</li>
+							<li>Add a button to the navigation bar which, when clicked changes the text within the basic directions  to "I Clicked It!".</li>
+							<li>Create a button within the navigation called "clear" which opens a new page with the text "new page has been created".</li>
+							<li>On the form add validation functionality that shows the form field (or its label) as red if the field is empty.  They should turn back to white when the data is entered.</li>
+						</ol>
+						<hr>
+					</div>
 
 					
 					
@@ -62,15 +71,21 @@
 					<hr>
 
 					<h3>Task 1 - The Image</h3>
-					<img onClick = "functionName()" src="assets/img/compIcon.png" id="imageTask1"><br />
-					<button style="display:none" id="buttonTask1">Click Me</button>
+					<!-- the button appears after onmouseover is called by using buttonappear.
+					It refers to the id of the image, and sets display style as block or none accordingly -->
+					<img onmouseover = "buttonappear()"  src="assets/img/compIcon.png" id="imageTask1"><br />
+					<button style="display:none" id="buttonTask1" onclick = "imageDisappear()">Click Me</button>
 					<hr>
 										
 					<h3>Task 2 - The Table</h3>
 					<!-- Buttons for this task should be entered before the table tag. -->
-					
-					
-					<table class="table table-striped">
+
+					<!-- these buttons operate based off of variables corresponding to their colour, they all use the same function -->
+					<button style="display:block" id="purpleTask2" onclick = "tablecolourchange('purple')">Purple</button>
+					<button style="display:block" id="cyanTask2" onclick = "tablecolourchange('cyan')">Cyan</button>
+					<button style="display:block" id="greenTask2" onclick = "tablecolourchange('green')">Green</button>
+
+					<table class="table table-striped" id = "tableTask2">
 						<thead>
 							<tr>
 								<th>#</th>
